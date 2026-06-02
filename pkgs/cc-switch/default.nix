@@ -45,7 +45,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --replace-fail '"createUpdaterArtifacts": true' '"createUpdaterArtifacts": false'
   '';
 
-  env.TAURI_SKIP_DEPS_CHECK = "true";
+  tauriBuildFlags = [ "--ignore-version-mismatches" ];
   # https://github.com/farion1231/cc-switch/pull/2316
 
   nativeBuildInputs = [
