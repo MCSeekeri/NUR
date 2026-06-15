@@ -9,12 +9,12 @@
   stdenvNoCC,
 }:
 let
-  version = "0.1.133";
+  version = "0.1.136";
   src = fetchFromGitHub {
     owner = "Wei-Shaw";
     repo = "sub2api";
     rev = "v${version}";
-    hash = "sha256-VRBjBlQoOGM0md4fFW137cBseKu/p4gJ5MC8FmRL710=";
+    hash = "sha256-yzEHmf8JcN42tfZDkwBb1A7MQ66K6JQZwisiv2hH1WE=";
   };
 
   frontend = stdenvNoCC.mkDerivation (finalAttrs: {
@@ -63,7 +63,7 @@ buildGoModule (finalAttrs: {
   inherit src;
 
   modRoot = "backend";
-  vendorHash = "sha256-rfv0MEUx2IXf3GsDVVZhEIyvKAW0L68tyzbrP5f4iqk=";
+  vendorHash = "";
 
   postPatch = ''
     rm -rf backend/internal/web/dist

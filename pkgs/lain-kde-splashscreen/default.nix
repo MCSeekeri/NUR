@@ -5,13 +5,13 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "lain-kde-splashscreen";
-  version = "0-unstable-2025-06-26";
+  version = "0-unstable-2025-11-30";
 
   src = fetchFromGitHub {
     owner = "dgudim";
     repo = "themes";
-    rev = "3b9817400a0e5d2746ac7a00f67098f9b8469d66";
-    hash = "sha256-NatYYX0CVRx59TMM1sXg84PmMSqZ5Ul6StmVpFOUWIk=";
+    rev = "496cdec18fc5d89e9e9bbb93faca6d481a006b31";
+    hash = "sha256-GGmsYDlalnSCrd4Mw/mCA2ghNm3wq/1LjaDdsYdKBcA=";
   };
   installPhase = ''
     runHook preInstall
@@ -26,7 +26,6 @@ stdenvNoCC.mkDerivation {
     description = "Lain themed KDE Plasma splash screen";
     homepage = "https://github.com/dgudim/themes";
     license = lib.licenses.unfree;
-    sourceProvenance = [ lib.sourceTypes.fromSource ];
     platforms = lib.platforms.linux;
   };
 }
