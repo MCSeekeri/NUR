@@ -23,5 +23,7 @@
 
   lain-kde-splashscreen = pkgs.callPackage ./pkgs/lain-kde-splashscreen { };
   cc-switch = pkgs.callPackage ./pkgs/cc-switch { };
+  luker = pkgs.callPackage ./pkgs/luker { };
   sub2api = pkgs.callPackage ./pkgs/sub2api { };
+  tauritavern = pkgs.callPackage ./pkgs/tauritavern { };
 }
