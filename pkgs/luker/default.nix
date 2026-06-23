@@ -50,6 +50,9 @@ buildNpmPackage (finalAttrs: {
     mkdir -p "$out/lib/node_modules/luker/backups"
     mkdir -p "$out/lib/node_modules/luker/public/scripts/extensions/third-party"
 
+    # Support services.sillytavern.package = pkgs.luker
+    ln -s luker "$out/lib/node_modules/sillytavern"
+
     wrapProgram "$out/bin/luker" \
       --set NODE_ENV production \
       --set LUKER_UPDATE_REMOTE "" \
