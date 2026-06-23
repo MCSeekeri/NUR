@@ -5,7 +5,7 @@
   fetchFromGitHub,
   git,
   makeWrapper,
-  nodejs_24,
+  nodejs_26,
 }:
 
 buildNpmPackage (finalAttrs: {
@@ -19,7 +19,7 @@ buildNpmPackage (finalAttrs: {
     hash = "sha256-6HGhe/qnup/nrhMttYYiMFshGvXuUffYJk8gv3PoHJ8=";
   };
 
-  nodejs = nodejs_24;
+  nodejs = nodejs_26;
   npmDepsHash = "sha256-KcsXA/ziIYM7XVUEvt00H3osTLlh1hmemsanJPtMPDI=";
 
   npmFlags = [
@@ -66,11 +66,16 @@ buildNpmPackage (finalAttrs: {
 
   meta = {
     description = "SillyTavern fork focused on customizable AI chat interfaces";
+    longDescription = ''
+      Luker is a feature-rich fork of SillyTavern with multi-agent orchestration,
+      iteration studio, memory graph, and deep AI character interaction controls.
+    '';
     homepage = "https://github.com/funnycups/Luker";
     changelog = "https://github.com/funnycups/Luker/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.agpl3Only;
     mainProgram = "luker";
-    platforms = lib.platforms.linux;
+    platforms = lib.platforms.unix;
     sourceProvenance = with lib.sourceTypes; [ fromSource ];
+    maintainers = with lib.maintainers; [ MCSeekeri ];
   };
 })
