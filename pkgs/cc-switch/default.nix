@@ -7,7 +7,7 @@
   fetchPnpmDeps,
   pnpmConfigHook,
   nodejs,
-  pnpm_10,
+  pnpm,
   pkg-config,
   wrapGAppsHook4,
   cargo-tauri,
@@ -22,24 +22,23 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cc-switch";
-  version = "3.16.3";
+  version = "3.16.5";
 
   src = fetchFromGitHub {
     owner = "farion1231";
     repo = "cc-switch";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-jj7FHJtXn127hqpjCe6buxvJNCtWxRe5HZPY8NRcglM=";
+    hash = "sha256-CrUoTfGAy+gi3gdcSlNyjwM2Rm4nahqDWdM6I9OQgPc=";
   };
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
-    pnpm = pnpm_10;
-    fetcherVersion = 3;
-    hash = "sha256-Vs+/KLICqciF7dnC3iRH9TFzNCtXDgOkWFPLxdwA0rE=";
+    fetcherVersion = 4;
+    hash = "sha256-4S00JM93MR5ARL2eginyNh/0dIrzU5rJQYS1x1PYoig=";
   };
 
   cargoRoot = "src-tauri";
-  cargoHash = "sha256-PfTkrD3ts/OugZ5qM82tTfWwSOcSddgDYzQhr6wLvOg=";
+  cargoHash = "sha256-gX32xCiVKHQ0BIIB9GyWHessIW30zbTcMZLtPJycxn8=";
   buildAndTestSubdir = finalAttrs.cargoRoot;
 
   postPatch = ''
@@ -55,7 +54,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     nodejs
     pkg-config
     pnpmConfigHook
-    pnpm_10
+    pnpm
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [ wrapGAppsHook4 ];
 
