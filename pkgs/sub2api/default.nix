@@ -10,12 +10,12 @@
   stdenvNoCC,
 }:
 let
-  version = "0.1.169";
+  version = "0.1.172";
   src = fetchFromGitHub {
     owner = "Wei-Shaw";
     repo = "sub2api";
     rev = "v${version}";
-    hash = "sha256-EVBZZulCZMR5QrcfAjQkOBAWCeNvhhPVBJelsDqZ+4Y=";
+    hash = "sha256-yktb8F1Bqs4uKKBUYMT6WLHljEH9DVgmQHPObado0wo=";
   };
 
   frontendPnpmDeps = fetchPnpmDeps {
@@ -24,7 +24,7 @@ let
     pnpm = pnpm_10;
     fetcherVersion = 4;
     sourceRoot = "source/frontend";
-    hash = "sha256-TOAEJu0qx1rN/txqZSyJ0mru48ce7Ahuh6u4VEjINWc=";
+    hash = "sha256-JT/wLpA/zG8nwekKLOfdC1Zd39cmGFV5jAKOzsFzOZw=";
   };
 
   frontend = stdenvNoCC.mkDerivation {
@@ -65,7 +65,7 @@ buildGoModule {
   inherit version src;
 
   modRoot = "backend";
-  vendorHash = "sha256-msTpQpH+nz2MkYFGv3lZtlhIjUoe6hj7lMS5WAXFIxI=";
+  vendorHash = "sha256-kmtkj9L1qMupQpc2E0Gbx9a3xPZ9o9bFrtwrbLoAB3w=";
   postPatch = ''
     substituteInPlace backend/go.mod \
       --replace-fail "go 1.26.5" "go 1.26"

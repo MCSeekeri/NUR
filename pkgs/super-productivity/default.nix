@@ -29,11 +29,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "super-productivity";
-  version = "18.16.0";
+  version = "18.19.0";
 
   src = fetchurl {
     url = "https://github.com/super-productivity/super-productivity/releases/download/v${finalAttrs.version}/superProductivity-amd64.deb";
-    hash = "sha256-HGX8mCKWON2E1seiuW25iIUshACAHu8NNsAoS5AwRug=";
+    hash = "sha256-/2npwZVmjO1KzaHtXNUYYGHfqYoxo8pqlTEY0CDKFEE=";
   };
 
   nativeBuildInputs = [
@@ -98,7 +98,10 @@ stdenv.mkDerivation (finalAttrs: {
       comment = "To-do list & time tracker for professionals";
       exec = "super-productivity";
       icon = "super-productivity";
-      categories = [ "Utility" "Office" ];
+      categories = [
+        "Utility"
+        "Office"
+      ];
     })
   ];
 

@@ -64,9 +64,8 @@ stdenv'.mkDerivation (finalAttrs: {
     wrapGAppsHook4
     copyDesktopItems
     wayland-scanner
-  ] ++ lib.optionals cudaSupport [
-    addDriverRunpath
-  ];
+  ]
+  ++ lib.optionals cudaSupport [ addDriverRunpath ];
 
   buildInputs = [
     glib
@@ -94,9 +93,8 @@ stdenv'.mkDerivation (finalAttrs: {
     libXi
     libXcursor
     libXfixes
-  ] ++ lib.optionals cudaSupport [
-    cudaPackages.cuda_cudart
-  ];
+  ]
+  ++ lib.optionals cudaSupport [ cudaPackages.cuda_cudart ];
 
   cmakeFlags = [
     "-DPLATFORM_DESKTOP=ON"
@@ -119,7 +117,8 @@ stdenv'.mkDerivation (finalAttrs: {
   postFixup = ''
     wrapProgram $out/bin/wiliwili \
       --chdir $out/share
-  '' + lib.optionalString cudaSupport ''
+  ''
+  + lib.optionalString cudaSupport ''
     addDriverRunpath $out/libexec/wiliwili
     wrapProgram $out/bin/wiliwili \
       --prefix LD_LIBRARY_PATH : ${addDriverRunpath.driverLink}/lib \
@@ -133,7 +132,10 @@ stdenv'.mkDerivation (finalAttrs: {
       comment = "Bilibili video client";
       exec = "wiliwili %u";
       icon = "cn.xfangfang.wiliwili";
-      categories = [ "Video" "Network" ];
+      categories = [
+        "Video"
+        "Network"
+      ];
     })
   ];
 

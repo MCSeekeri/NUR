@@ -29,7 +29,7 @@ let
     meta
     ;
 
-    src = fetchFromGitHub (
+  src = fetchFromGitHub (
     srcArgs // { hash = "sha256-RnNO3D560NddUWRcAtYo9wqFrnaaDxvBeZT/I7gvOe4="; }
   );
 
