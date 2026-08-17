@@ -25,6 +25,7 @@
   zlib,
   libgbm,
   alsa-lib,
+  nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -104,6 +105,8 @@ stdenv.mkDerivation (finalAttrs: {
       ];
     })
   ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "To-do list & time tracker for professionals and freelancers";

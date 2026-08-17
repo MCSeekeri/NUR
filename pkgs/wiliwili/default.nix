@@ -39,6 +39,7 @@
   cudaSupport ? config.cudaSupport or false,
   cudaPackages,
   addDriverRunpath,
+  nix-update-script,
 }:
 
 let
@@ -138,6 +139,8 @@ stdenv'.mkDerivation (finalAttrs: {
       ];
     })
   ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = with lib; {
     description = "A cross-platform bilibili client built with wlengine";

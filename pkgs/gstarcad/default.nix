@@ -38,11 +38,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "gstarcad";
-  version = "27.0";
+  version = "27.0.1";
 
   src = fetchurl {
-    url = "https://official-cn.gstarcad.cn/linux/2027/gstarsoft.gstarcad2026_${finalAttrs.version}_58amd64.deb";
-    hash = "sha256-cR3mZcuVS1woFm+qCL5udlVGUDkCNvZngGjQyARlr6k=";
+    url = "https://official-cn.gstarcad.cn/linux/2027/gstarsoft.gstarcad2027_${finalAttrs.version}_715amd64.deb";
+    hash = "sha256-TsnApLwBaBoqNDAXkomMy+gB2TtiCYJZJlgnZAjn4ow=";
     curlOptsList = [
       "-H"
       "Referer: https://www.gstarcad.com/download-thanks/linux/207/1/262/"
