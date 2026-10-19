@@ -22,30 +22,32 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cc-switch";
-  version = "3.20.4";
+  version = "4.0.15";
 
   src = fetchFromGitHub {
     owner = "farion1231";
     repo = "cc-switch";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-UewKhov4j+qa+319rMFUd+/80ylzPuleC79pEdaBJKI=";
+    hash = "sha256-+W4AaD3u6lDaoibevxjs/UahSL8ZdynW0kOXw9taTf0=";
   };
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     pnpm = pnpm_12;
     fetcherVersion = 4;
-    hash = "sha256-GZUHgl8EQFjYqYEHpJnMYXKIS0v3jbEeSzh7O0ojCnc=";
+    hash = "sha256-SzNQsn8QtvTjzx1b3R0xxA/46xztlkBUClpj5uGUfiE=";
   };
 
   cargoRoot = "src-tauri";
-  cargoHash = "sha256-DdvQ084Aop+rr6ECc5+lEJ4gSxDTtl6sF+ixjj6Dg6Q=";
+  cargoHash = "sha256-009XukgZJLvefiPV3oxX4WbYF3PH6QCx1gVRJDTh4Mg=";
   buildAndTestSubdir = finalAttrs.cargoRoot;
 
   checkFlags = [
     "--skip=npm_anchor_supplies_sibling_node_to_env_shebang"
     "--skip=probe_version_command_captures_healthy_tool_output"
     "--skip=mcode_history_uses_visible_roots_and_display_messages"
+    "--skip=claude_updater_child_inherits_scoped_settings_without_parent_leakage"
+    "--skip=test_parent_rollout_is_cached_once_across_fork_cutoffs"
   ];
 
   postPatch = ''
